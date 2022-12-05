@@ -1,0 +1,22 @@
+<div class="dynamics">
+    <div class="points">
+        <p>{{ sol }}</p>
+    </div>
+    <div class="matrix">
+        <p>{{ df }}</p>
+    </div>
+    <div class="eigenvalues">
+        {% for e in eigenval %}
+            {{ e }}
+            {% if e[0] < 1 and e[1] < 1 %}}
+                <p>El punto 2-periódico es atractivo</p>
+            {% endif %}
+            {% if e[0] > 1 and e[1] > 1 %}}
+                <p>El punto 2-periódico es repulsivo</p>
+            {% endif %}
+            {% if (e[0] < 1 and e[1] > 1) or e[0] > 1 and e[1] < 1 %}}
+                <p>El punto 2-periódico es punto silla </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
